@@ -1,0 +1,33 @@
+const express = require('express');
+const router = express.Router();
+const Manage = require('./manage.controller');
+const ManageAux = require('./manage-control.controller');
+
+router.get('/getAllT', Manage.getAllTeams);
+router.get('/getTeamProds', Manage.getTeamDetailProducts);
+router.post('/createT', Manage.createTeam);
+router.get('/getAllSch', Manage.getSchedules);
+router.post('/createSch', Manage.createSchedule);
+router.get('/getSchByDate', Manage.getScheduleByDate);
+router.get('/getSchById', Manage.getScheduleByCode);
+router.post('/getTeamsByDate', Manage.getTeamsByDate);
+router.get('/getDistinctTeams', Manage.getDistinctTeams);
+router.get('/getActiveSch', Manage.getScheduleActive);
+router.get('/getScheduleRoute', Manage.getScheduleRoute);
+router.get('/getScheduleByTeamCode', Manage.getScheduleByTeamCode);
+router.post('/assignProducts', Manage.insertProducstToTeam);
+router.get('/clearSchedule', Manage.clearSchedule);
+router.post('/setRatioTeam', ManageAux.insertTeamRatios);
+router.get('/getLastRatios', ManageAux.getLastRatios);
+router.get('/getSchedulejobs', ManageAux.getSchedulejobs);
+router.get('/getJobDetails', ManageAux.getJobDetails);
+router.get('/getTotalAvailable', ManageAux.getPaintTotalAvailable);
+router.post('/saveJobState', ManageAux.updateJob);
+router.get('/getAllJobs', ManageAux.getAllJobs);
+router.get('/getArrivalSchedule', ManageAux.getArrivalRecordsBySchedule);
+router.post('/getAllJobsByDate', ManageAux.getAllJobsByDate);
+router.post('/setPlaceAndTimestamp', ManageAux.createRecordArrival);
+router.post('/markJobCompleted', ManageAux.markJobCompleted);
+router.post('/markJobReescheduled', ManageAux.markJobReescheduled);
+
+module.exports = router;
